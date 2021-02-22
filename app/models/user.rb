@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :socials
+    accepts_nested_attributes_for :socials, allow_destroy: true, reject_if: :all_blank
     validates :first_name, presence: true,
                           length: { minimum: 3, maximum: 25}
     validates :username, presence: true,
